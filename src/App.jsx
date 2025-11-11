@@ -1,58 +1,26 @@
 import "./App.css";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import StaggerBoxes from "./components/StaggerBoxes";
+import HorizontalScroller from "./components/HorizontalScroller";
 
-gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const containerRef = useRef(null);
-  const itemsRef = useRef([]);
-
-  useGSAP(() => {
-    gsap.set(itemsRef.current, { opacity: 0, y: 40 });
-
-    itemsRef.current.forEach((el) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%", 
-          toggleActions: "play none none reverse",
-          scrub: true,  
-        },
-      });
-    });
-  }, { scope: containerRef });
-
+  
   return (
-    <div className="min-h-screen bg-gray-100 py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Scroll to Reveal Grid
-        </h2>
-        <div
-          ref={containerRef}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
-        >
-          {Array.from({ length: 50 }, (_, i) => (
-            <div
-              key={i}
-              ref={(el) => (itemsRef.current[i] = el)}
-              className="aspect-square bg-linear-to-br from-blue-500 to-purple-600 rounded-lg opacity-0"
-              style={{ transform: "translateY(40px)" }}
-            />
-          ))}
+    <>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="w-full max-w-7xl mx-auto px-4">
+          <StaggerBoxes />
         </div>
-        {/* Add room to prevent partial opacity */}
-        {/* <div className="h-screen bg-gray-100" /> */}
       </div>
-    </div>
+
+      <div className="h-screen bg-linear-to-b from-gray-50 to-gray-100" />
+
+      <HorizontalScroller />
+
+      <div className="h-screen bg-gray-900 flex items-center justify-center">
+        <h2 className="text-6xl font-bold text-white">End</h2>
+      </div>
+    </>
   );
 }
 
