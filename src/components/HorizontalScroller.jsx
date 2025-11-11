@@ -39,14 +39,14 @@ export default function HorizontalScroller() {
       <div className="h-screen flex items-center">
         <div
           ref={trackRef}
-          className="flex gap-8 px-8"
+          className="flex gap-30 px-8"
           style={{ width: "fit-content" }}
         >
           {Array.from({ length: 10 }, (_, i) => (
             <div
               key={i}
               ref={(el) => (itemsRef.current[i] = el)}
-              className="shrink-0 w-80 h-80 bg-linear-to-br from-pink-500 to-yellow-500 rounded-3xl shadow-2xl flex items-center justify-center text-6xl font-bold text-white"
+              className="w-80 h-80 bg-linear-to-br from-pink-500 to-yellow-500 rounded-3xl shadow-2xl flex items-center justify-center text-6xl font-bold text-white"
             >
               {i + 1}
             </div>

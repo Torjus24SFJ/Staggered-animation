@@ -12,14 +12,8 @@ function App() {
           <StaggerBoxes />
         </div>
       </div>
-
       <div className="h-screen bg-linear-to-b from-gray-50 to-gray-100" />
-
       <HorizontalScroller />
-
-      <div className="h-screen bg-gray-900 flex items-center justify-center">
-        <h2 className="text-6xl font-bold text-white">End</h2>
-      </div>
     </>
   );
 }
