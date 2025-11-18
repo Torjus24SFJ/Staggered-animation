@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: MonoSans;
+  src: url(/fonts/MonaSans-VariableFont_wdth\,wght.ttf);
+  font-weight: 700;
+}
+
+@theme {
+  --font-monosans: MonoSans, "sans-serif";
+
+}
+
+.reveal-text .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #23378e;
+  transform-origin: left;
+}
+
+.reveal-text .mask-inner {
+  position: relative;
+  display: inline-block;
+}

@@ -33,7 +33,7 @@ export default function StaggerBoxes() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100 py-20">
+    <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">
           Scroll to Reveal Grid
